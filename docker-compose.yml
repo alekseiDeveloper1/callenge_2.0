@@ -1,0 +1,62 @@
+services:
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile
+    environment:
+      - NEXT_PUBLIC_API_URL=http://api:3000
+      - PORT=3001
+      - NODE_ENV=production
+    restart: always
+    ports:
+      - 3001:3001
+    networks:
+      - app_network
+    depends_on:
+      - api
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: challenge_1.0
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app_network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -h postgres -U postgres -d challenge_1.0" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    environment:
+      - JWT_SECRET="proto"
+      - JWT_REFRESH_SECRET="proto_r"
+      - JWT_EXPIRES_IN=3600s
+      - DATABASE_URL=postgresql://postgres:mysecretpassword@postgres:5432/challenge_1.0?schema=public
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - app_network
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  app_network:
+    external: true
+    driver: bridge
