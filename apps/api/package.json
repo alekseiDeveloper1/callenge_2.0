@@ -25,7 +25,6 @@
     "@nestjs/passport": "^11.0.5",
     "@nestjs/platform-express": "^10.0.0",
     "@prisma/client": "^6.9.0",
-    "@repo/api": "*",
     "bcrypt": "^6.0.0",
     "cache-manager": "^6.4.3",
     "cookie-parser": "^1.4.7",
@@ -35,12 +34,14 @@
     "redis": "^5.1.1",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
-    "zod": "^3.25.48"
+    "zod": "^3.25.48",
+    "@nestjs/mapped-types": "*"
   },
   "peerDependencies": {
     "@nestjs/core": "^9.0.0 || ^10.0.0"
   },
   "devDependencies": {
+    "typescript": "5.5.4",
     "@jest/globals": "^29.7.0",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
@@ -62,7 +63,6 @@
     "ts-jest": "^29.2.5",
     "ts-loader": "^9.4.3",
     "ts-node": "^10.9.2",
-    "tsconfig-paths": "^4.2.0",
-    "typescript": "5.5.4"
+    "tsconfig-paths": "^4.2.0"
   }
 }

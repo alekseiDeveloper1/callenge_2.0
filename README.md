@@ -1,4 +1,9 @@
 
+## Установка зависимостей:
+В корне проекта
+npm install turbo --global
+npm install
+
 # Локально
 ## Создайте .env файлы в корне проекта, apps/web и apps/api.
 Например:
@@ -23,13 +28,20 @@ DATABASE_URL=postgresql://postgres:mysecretpassword@localhost:5432/challenge_1.0
 JWT_SECRET="proto"
 JWT_REFRESH_SECRET="proto_r"
 
-## Запустите проект:
-В корне проекта
-npm install turbo --global
-npm install
+apps/api/prisma
+prisma generate
+
+## в корне проекта
+npm run dev
 
 # Докер
+packages/shared
+npm i
 
+apps/web и apps/api
+npx turbo build
+
+в корне проекта
 COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f docker-compose.yml build
 docker-compose -f docker-compose.yml up -d
 

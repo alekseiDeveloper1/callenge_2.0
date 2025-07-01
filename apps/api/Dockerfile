@@ -27,7 +27,6 @@ COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/package-lock.json ./package-lock.json
 
 # 4. Устанавливаем зависимости (включая devDependencies для сборки)
-RUN npm install --workspace=api @nestjs/config @nestjs/passport passport-jwt
 RUN npm install --global npm@latest && \
     npm install --include=dev
 
