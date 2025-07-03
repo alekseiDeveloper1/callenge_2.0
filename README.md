@@ -4,7 +4,6 @@
 npm install turbo --global
 npm install
 
-# Локально
 ## Создайте .env файлы в корне проекта, apps/web и apps/api.
 Например:
 ./
@@ -28,6 +27,7 @@ DATABASE_URL=postgresql://postgres:mysecretpassword@localhost:5432/challenge_1.0
 JWT_SECRET="proto"
 JWT_REFRESH_SECRET="proto_r"
 
+# Локально
 apps/api/prisma
 prisma generate
 
