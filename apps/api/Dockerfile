@@ -39,14 +39,12 @@ RUN npx prisma generate --schema=./apps/api/prisma/schema.prisma
 # 7. Собираем NestJS приложение
 #npx turbo run build --filter=api...
 RUN npx turbo build
-COPY --from=builder /app/apps/api/dist ./apps/api/dist
 # Финальный образ
 FROM base AS runner
 WORKDIR /app
 
 # 8. Копируем только необходимые файлы
 COPY --from=installer /app/node_modules ./node_modules
-COPY --from=installer /app/apps/api/node_modules ./apps/api/node_modules
 COPY --from=installer /app/apps/api/dist ./apps/api/dist
 COPY --from=installer /app/apps/api/prisma ./apps/api/prisma
 

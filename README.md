@@ -23,7 +23,7 @@ port=3001
 JWT_SECRET="proto"
 JWT_REFRESH_SECRET="proto_r"
 
-apps/api.
+apps/api
 DATABASE_URL=postgresql://postgres:mysecretpassword@localhost:5432/challenge_1.0?schema=public
 JWT_SECRET="proto"
 JWT_REFRESH_SECRET="proto_r"
@@ -35,11 +35,6 @@ prisma generate
 npm run dev
 
 # Докер
-packages/shared
-npm i
-
-apps/web и apps/api
-npx turbo build
 
 в корне проекта
 COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f docker-compose.yml build

@@ -27,8 +27,7 @@
   "packageManager": "npm@10.1.0",
   "workspaces": [
     "apps/*",
-    "packages/*",
-    "apps/web/*"
+    "packages/*"
   ],
   "dependenciesMeta": {
     "api": {

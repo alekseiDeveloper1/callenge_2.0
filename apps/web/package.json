@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@heroui/react": "^2.7.11",
-    "@repo/ui": "*",
     "eslint-config-next": "^15.3.3",
     "framer-motion": "^12.18.1",
     "next": "^15.3.3",
@@ -25,7 +24,6 @@
     "@jest/globals": "^29.7.0",
     "@next/eslint-plugin-next": "^14.1.1",
     "@playwright/test": "^1.44.0",
-    "@repo/api": "*",
     "@repo/eslint-config": "*",
     "@repo/jest-config": "*",
     "@repo/typescript-config": "*",
